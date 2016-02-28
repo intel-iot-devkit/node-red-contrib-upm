@@ -1,18 +1,15 @@
-node-red-node-upm
-========================
+## node-red-node-upm
 
 <a href="http://nodered.org" target="_new">Node-RED</a> nodes to talk to <a href="https://software.intel.com/en-us/iot/hardware/sensors" target="_blank">sensors</a> supported by the <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a> library
 
-Install
--------
+### Install
 
 Run the following command in the root directory of your Node-RED install, usually
 this is ~/.node-red .
 
         npm install node-red-node-upm
 
-Usage
------
+### Usage
 
 Only tested on the Intel Edison so far, but it should work on other platforms supported by <a href="https://github.com/intel-iot-devkit/mraa" target="_blank">MRAA</a> and <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a>.
 
@@ -38,3 +35,6 @@ If you do need to install Node-RED, you can do this as follows from the home dir
     * Grove Sound Sensor
     * Grove Temperature Sensor
 * ... more to follow
+
+### Screenshot
+![screenshot](https://raw.githubusercontent.com/w4ilun/Node-Red-Node-UPM/master/screenshot.png)
