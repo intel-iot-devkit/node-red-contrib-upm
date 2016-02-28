@@ -14,9 +14,9 @@ this is ~/.node-red .
 Usage
 -----
 
-Only tested on the Intel Edison so far, but should work on other platforms supported by <a href="https://github.com/intel-iot-devkit/mraa" target="_blank">MRAA</a> and <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a>.
+Only tested on the Intel Edison so far, but it should work on other platforms supported by <a href="https://github.com/intel-iot-devkit/mraa" target="_blank">MRAA</a> and <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a>.
 
-Ensure that you have the latest firmware, and have Node-RED installed.
+Ensure you have the latest firmware running, and have Node-RED installed.
 
 See the [Intel Downloads](https://software.intel.com/en-us/iot/home) for
 hardware / downloads for your particular board.
