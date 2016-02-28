@@ -1,0 +1,73 @@
+<script type="text/x-red" data-template-name="UPM-Grove-Light">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
+        <select type="text" id="node-input-pin">
+            <option value="0" selected="selected">A0</option>
+            <option value="1">A1</option>
+            <option value="2">A2</option>
+            <option value="3">A3</option>
+            <option value="4">A4</option>
+            <option value="5">A5</option>
+        </select>
+    </div>    
+    <div class="form-row">
+        <label for="node-input-unit"><i class="fa fa-exchange"></i> Unit</label>
+        <select type="text" id="node-input-unit">
+            <option value="Lux" selected="selected">Lux</option>
+            <option value="RAW">Raw Value</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-refresh"></i> Interval (ms)</label>
+        <input type="text" id="node-input-interval" placeholder="1000">
+    </div>    
+</script>
+
+<script type="text/x-red" data-help-name="UPM-Grove-Light">
+    <h2>Grove Light Sensor</h2>
+    <br>
+    <p>This node outputs the lux reading or the raw analog value from the Grove Light Sensor.</p>
+    <br>
+    <p>Learn More:
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/grove-light-sensor" target="_blank">Grove Light Sensor</a>
+    </p>
+    <br>
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/grovelight.jpg" />
+</script>
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('UPM-Grove-Light', {
+        category: 'UPM Sensors',
+        defaults: {
+            name: {
+                value: ''
+            },
+            unit:  {
+                value: 'Lux',
+            },
+            pin:  {
+                value: '0',
+                required: true,
+                validate:RED.validators.number()
+            },
+            interval: {
+                value: 1000,
+                required: true,
+                validate: RED.validators.number()
+            }
+        },
+        color: '#a6bbcf',
+        paletteLabel: 'Grove Light',
+        inputs: 0,
+        outputs: 1,
+        icon: 'light.png',
+        label: function(){
+            return this.name || 'Grove Light';
+        }
+    });
+</script>

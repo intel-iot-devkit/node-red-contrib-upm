@@ -1,0 +1,105 @@
+<script type="text/x-red" data-template-name="UPM-Grove-RGB-LCD">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-r"><i class="fa fa-paint-brush"></i> R</label>
+        <input type="text" id="node-input-r" placeholder="0 - 255">
+    </div>
+    <div class="form-row">
+        <label for="node-input-g"><i class="fa fa-paint-brush"></i> G</label>
+        <input type="text" id="node-input-g" placeholder="0 - 255">
+    </div>
+    <div class="form-row">
+        <label for="node-input-b"><i class="fa fa-paint-brush"></i> B</label>
+        <input type="text" id="node-input-b" placeholder="0 - 255">
+    </div>
+    <div class="form-row">
+        <label for="node-input-row"><i class="fa fa-i-cursor"></i>Cursor Row</label>
+        <select type="text" id="node-input-row">
+            <option value="0" selected="selected">0</option>
+            <option value="1">1</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-column"><i class="fa fa-i-cursor"></i>Cursor Column</label>
+        <select type="text" id="node-input-column">
+            <option value="0" selected="selected">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="UPM-Grove-RGB-LCD">
+    <h2>Grove RGB LCD (JHD1313M1)</h2>
+    <br>
+    <p>This node will display the message payload and set the backlight on the Grove RGB LCD.</p>
+    <br>
+    <p>Learn More:
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/jhd1313m1-display" target="_blank">Grove RGB LCD (JHD1313M1)</a>
+    </p>
+    <br>
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/grovergblcd.jpg" />
+</script>
+
+
+<script type="text/javascript">
+    
+    function oneditprepare(){}
+
+    RED.nodes.registerType('UPM-Grove-RGB-LCD', {
+        category: 'UPM Sensors',
+        defaults: {
+            name: {
+                value: ''
+            },
+            r: {
+                value: 0,
+                validate:RED.validators.number()
+            },
+            g: {
+                value: 0,
+                validate:RED.validators.number()
+            },
+            b: {
+                value: 255,
+                validate:RED.validators.number()
+            },
+            row:  {
+                value: 0,
+                require: true,
+                validate:RED.validators.number()
+            },
+            column:  {
+                value: 0,
+                required: true,
+                validate:RED.validators.number()
+            }
+        },
+        color: '#a6bbcf',
+        paletteLabel: 'Grove RGB LCD',
+        inputs: 1,
+        outputs: 0,
+        icon: 'debug.png',
+        align: 'right',
+        label: function(){
+            return this.name || 'Grove RGB LCD';
+        },
+        oneditprepare:oneditprepare
+    });
+</script>

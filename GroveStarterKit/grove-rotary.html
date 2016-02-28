@@ -1,0 +1,77 @@
+<script type="text/x-red" data-template-name="UPM-Grove-Rotary">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
+        <select type="text" id="node-input-pin">
+            <option value="0" selected="selected">A0</option>
+            <option value="1">A1</option>
+            <option value="2">A2</option>
+            <option value="3">A3</option>
+            <option value="4">A4</option>
+            <option value="5">A5</option>
+        </select>
+    </div>    
+    <div class="form-row">
+        <label for="node-input-unit"><i class="fa fa-exchange"></i> Unit</label>
+        <select type="text" id="node-input-unit">
+            <option value="ABSRAW" selected="selected">Absolute Raw</option>
+            <option value="ABSDEG">Absolute Degrees</option>
+            <option value="ABSRAD">Absolute Radians</option>
+            <option value="RELRAW">Relative Raw</option>
+            <option value="RELDEG">Relative Degrees</option>
+            <option value="RELRAD">Relative Radians</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-refresh"></i> Interval (ms)</label>
+        <input type="text" id="node-input-interval" placeholder="1000">
+    </div>    
+</script>
+
+<script type="text/x-red" data-help-name="UPM-Grove-Rotary">
+    <h2>Grove Rotary Sensor</h2>
+    <br>
+    <p>This node outputs the rotary angle reading in degress or radians for the absolute or relative position of the Grove Rotary Sensor.</p>
+    <br>
+    <p>Learn More:
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/grove-rotary-angle-sensor" target="_blank">Grove Rotary Sensor</a>
+    </p>
+    <br>
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/groverotary.jpeg" />
+</script>
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('UPM-Grove-Rotary', {
+        category: 'UPM Sensors',
+        defaults: {
+            name: {
+                value: ''
+            },
+            unit:  {
+                value: 'ABSRAW'
+            },
+            pin:  {
+                value: '0',
+                required: true,
+                validate:RED.validators.number()
+            },
+            interval: {
+                value: 1000,
+                required: true,
+                validate: RED.validators.number()
+            }
+        },
+        color: '#a6bbcf',
+        paletteLabel: 'Grove Rotary',
+        inputs: 0,
+        outputs: 1,
+        icon: 'arrow-in.png',
+        label: function(){
+            return this.name || 'Grove Rotary';
+        }
+    });
+</script>
