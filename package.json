@@ -6,7 +6,7 @@
     },
     "repository" : {
         "type": "git",
-        "url": ""
+        "url": "git+https://github.com/w4ilun/Node-Red-Node-UPM.git"
     },
     "license": "MIT",
     "keywords": [ "node-red", "sensors", "mraa", "upm", "intel", "edison", "galileo" ],
