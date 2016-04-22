@@ -2,9 +2,7 @@
     "name": "node-red-node-upm",
     "version": "0.0.1",
     "description": "Node-RED nodes to talk to sensors supported by the UPM library",
-    "dependencies": {
-	"arduino-firmata"   : "0.3.4"
-    },
+    "dependencies": {},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/w4ilun/Node-Red-Node-UPM.git"
