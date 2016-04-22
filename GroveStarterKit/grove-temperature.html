@@ -1,7 +1,14 @@
-<script type="text/x-red" data-template-name="UPM-Grove-Temperature">
+<script type="text/x-red" data-template-name="upm-grove-temperature">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
     </div>
     <div class="form-row">
         <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
@@ -28,7 +35,7 @@
     </div>    
 </script>
 
-<script type="text/x-red" data-help-name="UPM-Grove-Temperature">
+<script type="text/x-red" data-help-name="upm-grove-temperature">
     <h2>Grove Temperature Sensor</h2>
     <br>
     <p>This node outputs the temperature reading in Celsius or Fahrenheit or the raw analog value from the Grove Temperature Sensor.</p>
@@ -42,12 +49,15 @@
 
 
 <script type="text/javascript">
-    RED.nodes.registerType('UPM-Grove-Temperature', {
+    RED.nodes.registerType('upm-grove-temperature', {
         category: 'UPM Sensors',
         defaults: {
             name: {
                 value: ''
             },
+	    platform: {
+		value: '0'
+	    },
             unit:  {
                 value: 'C',
                 required: true

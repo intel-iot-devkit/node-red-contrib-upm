@@ -1,8 +1,15 @@
-<script type="text/x-red" data-template-name="UPM-Grove-LED">
+<script type="text/x-red" data-template-name="upm-grove-led">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
+    </div> 
     <div class="form-row">
         <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
         <select type="text" id="node-input-pin">
@@ -35,7 +42,7 @@
     </div>    
 </script>
 
-<script type="text/x-red" data-help-name="UPM-Grove-LED">
+<script type="text/x-red" data-help-name="upm-grove-led">
     <h2>Grove LED</h2>
     <br>
     <p>This node will toggle the Grove LED based on the input (1 or 0), or blink at the set interval</p>
@@ -60,12 +67,15 @@
         });
     }
 
-    RED.nodes.registerType('UPM-Grove-LED', {
+    RED.nodes.registerType('upm-grove-led', {
         category: 'UPM Sensors',
         defaults: {
             name: {
                 value: ''
             },
+	    platform: {
+		value: '0'
+	    },
             mode:  {
                 value: 'blink'
             },

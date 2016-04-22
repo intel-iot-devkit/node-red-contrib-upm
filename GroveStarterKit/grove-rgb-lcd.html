@@ -1,8 +1,15 @@
-<script type="text/x-red" data-template-name="UPM-Grove-RGB-LCD">
+<script type="text/x-red" data-template-name="upm-grove-rgb-lcd">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
+    </div> 
     <div class="form-row">
         <label for="node-input-r"><i class="fa fa-paint-brush"></i> R</label>
         <input type="text" id="node-input-r" placeholder="0 - 255">
@@ -45,7 +52,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="UPM-Grove-RGB-LCD">
+<script type="text/x-red" data-help-name="upm-grove-rgb-lcd">
     <h2>Grove RGB LCD (JHD1313M1)</h2>
     <br>
     <p>This node will display the message payload and set the backlight on the Grove RGB LCD.</p>
@@ -62,12 +69,15 @@
     
     function oneditprepare(){}
 
-    RED.nodes.registerType('UPM-Grove-RGB-LCD', {
+    RED.nodes.registerType('upm-grove-rgb-lcd', {
         category: 'UPM Sensors',
         defaults: {
             name: {
                 value: ''
             },
+	    platform: {
+		value: '0'
+	    },
             r: {
                 value: 0,
                 validate:RED.validators.number()

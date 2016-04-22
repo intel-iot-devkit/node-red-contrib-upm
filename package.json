@@ -11,12 +11,12 @@
     "keywords": ["node-red", "sensors", "mraa", "upm", "intel", "edison", "galileo"],
     "node-red": {
         "nodes": {
-            "UPM-Grove-LED": "GroveStarterKit/grove-led.js",
-            "UPM-Grove-Light": "GroveStarterKit/grove-light.js",
-            "UPM-Grove-RGB-LCD": "GroveStarterKit/grove-rgb-lcd.js",
-            "UPM-Grove-Rotary": "GroveStarterKit/grove-rotary.js",
-            "UPM-Grove-Sound": "GroveStarterKit/grove-sound.js",
-            "UPM-Grove-Temperature": "GroveStarterKit/grove-temperature.js"
+            "upm-grove-led": "GroveStarterKit/grove-led.js",
+            "upm-grove-light": "GroveStarterKit/grove-light.js",
+            "upm-grove-rgb-lcd": "GroveStarterKit/grove-rgb-lcd.js",
+            "upm-grove-rotary": "GroveStarterKit/grove-rotary.js",
+            "upm-grove-sound": "GroveStarterKit/grove-sound.js",
+            "upm-grove-temperature": "GroveStarterKit/grove-temperature.js"
         }
     },
     "author": {

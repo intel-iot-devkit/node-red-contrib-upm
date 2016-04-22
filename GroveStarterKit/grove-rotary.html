@@ -1,7 +1,14 @@
-<script type="text/x-red" data-template-name="UPM-Grove-Rotary">
+<script type="text/x-red" data-template-name="upm-grove-rotary">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
     </div>
     <div class="form-row">
         <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
@@ -31,7 +38,7 @@
     </div>    
 </script>
 
-<script type="text/x-red" data-help-name="UPM-Grove-Rotary">
+<script type="text/x-red" data-help-name="upm-grove-rotary">
     <h2>Grove Rotary Sensor</h2>
     <br>
     <p>This node outputs the rotary angle reading in degress or radians for the absolute or relative position of the Grove Rotary Sensor.</p>
@@ -45,12 +52,15 @@
 
 
 <script type="text/javascript">
-    RED.nodes.registerType('UPM-Grove-Rotary', {
+    RED.nodes.registerType('upm-grove-rotary', {
         category: 'UPM Sensors',
         defaults: {
             name: {
                 value: ''
             },
+	    platform: {
+		value: '0'
+	    },
             unit:  {
                 value: 'ABSRAW'
             },
