@@ -17,7 +17,7 @@
             "UPM-Grove-Rotary": "GroveStarterKit/grove-rotary.js",
             "UPM-Grove-Sound": "GroveStarterKit/grove-sound.js",
             "UPM-Grove-Temperature": "GroveStarterKit/grove-temperature.js",
-	    "upm-curieimu": "curieimu/curieimu.js"
+            "upm-curieimu": "curieimu/curieimu.js"
         }
     },
     "author": {
