@@ -9,19 +9,19 @@ module.exports = function(RED){
 
         //properties
         this.name = n.name;
+        this.platform = n.platform;
         this.pin = n.pin;
         this.unit = n.unit;
         this.interval = n.interval
-        this.sensor = new groveSensor.GroveTemp(parseInt(this.pin));
-        this.board = m.getPlatformName();
+        this.sensor = new groveSensor.GroveTemp(parseInt(this.pin) + parseInt(this.platform));
         this.status({});
 
         var node = this;
 
-        var msg = { topic:node.board+'/A'+node.pin };
+        var msg = { topic:node.name + '/A' + node.pin };
 
         //poll reading at interval
-        this.timer = setInterval(function(){
+        this.timer = setInterval(function() {
             if(node.unit == 'RAW'){
                 msg.payload = node.sensor.raw_value();
             }
@@ -33,9 +33,9 @@ module.exports = function(RED){
         }, node.interval);
 
         //clear interval on exit
-        this.on('close', function(){
+        this.on('close', function() {
             clearInterval(this.timer);
         });
     }
-    RED.nodes.registerType('UPM-Grove-Temperature', groveTemperature);
+    RED.nodes.registerType('upm-grove-temperature', groveTemperature);
 }
