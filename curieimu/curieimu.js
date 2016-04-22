@@ -8,32 +8,32 @@ module.exports = function(RED){
 
         // Properties
         this.name = n.name;
-	this.mode = n.mode;
+        this.mode = n.mode;
         this.interval = n.interval
-	this.imu = new curieImu.CurieImu();
+        this.imu = new curieImu.CurieImu();
         this.status({});
 
         var node = this;
 	
-	var msg = { topic:node.name + '/' + node.mode };
+        var msg = { topic:node.name + '/' + node.mode };
         var msgx = { topic:node.name + '/' + node.mode + 'X' };
-	var msgy = { topic:node.name + '/' + node.mode + 'Y' };
-	var msgz = { topic:node.name + '/' + node.mode + 'Z' };
+        var msgy = { topic:node.name + '/' + node.mode + 'Y' };
+        var msgz = { topic:node.name + '/' + node.mode + 'Z' };
 
         this.timer = setInterval(function() {
-	    if(node.mode == 'ACCEL') {
-	        node.imu.updateAccel();
+            if(node.mode == 'ACCEL') {
+                node.imu.updateAccel();
                 msgx.payload = node.imu.getAccelX();
-	        msgy.payload = node.imu.getAccelY();
-	        msgz.payload = node.imu.getAccelZ();
-	    } else {
-		node.imu.updateGyro();
+                msgy.payload = node.imu.getAccelY();
+                msgz.payload = node.imu.getAccelZ();
+            } else {
+                node.imu.updateGyro();
                 msgx.payload = node.imu.getGyroX();
-	        msgy.payload = node.imu.getGyroY();
-	        msgz.payload = node.imu.getGyroZ();
-	    }
+                msgy.payload = node.imu.getGyroY();
+                msgz.payload = node.imu.getGyroZ();
+            }
 
-	    msg.payload = [ msgx, msgy, msgz ];
+            msg.payload = [ msgx, msgy, msgz ];
             node.send(msg);
         }, node.interval);
 
