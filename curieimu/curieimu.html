@@ -1,0 +1,55 @@
+<script type="text/x-red" data-template-name="upm-curieimu">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-wrench"></i> Mode</label>
+        <select type="text" id="node-input-mode" style="width: 150px;">
+            <option value="ACCEL"> Accelerometer</option>
+            <option value="GYRO"> Gyroscope</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-interval"><i class="fa fa-refresh"></i> Interval (ms)</label>
+        <input type="text" id="node-input-interval" placeholder="1000">
+    </div>    
+</script>
+
+<script type="text/x-red" data-help-name="upm-curieimu">
+    <h2>Curie Firmata IMU</h2>
+    <br>
+    <p>This node reads data from the IMU of a connected Genuino/Arduino 101 board every <i>interval</i> milliseconds.</p>
+    <p>This node has been tested with a Genuino/Arduino 101 running ConfigurableFirmata with the CurieIMU plugin.</p>
+    <br>
+    <img src="http://www.intel.com/content/dam/www/public/us/en/images/maker/rwd/arduino-front-angle-rwd.jpg.rendition.intel.web.1072.603.jpg" />
+</script>
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('upm-curieimu', {
+        category: 'UPM Sensors',
+	color: '#a6bbcf',
+        paletteLabel: 'CurieIMU',
+        defaults: {
+            name: {
+                value: ''
+            },
+	    mode: {
+		value: 'ACCEL',
+		required: true
+	    },
+            interval: {
+                value: 1000,
+		required: true,
+		validate: RED.validators.number()
+            }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: 'arrow-out.png',
+        label: function(){
+            return this.name || 'CurieIMU';
+        }
+    });
+</script>

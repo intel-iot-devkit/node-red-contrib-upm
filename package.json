@@ -16,7 +16,8 @@
             "upm-grove-rgb-lcd": "GroveStarterKit/grove-rgb-lcd.js",
             "upm-grove-rotary": "GroveStarterKit/grove-rotary.js",
             "upm-grove-sound": "GroveStarterKit/grove-sound.js",
-            "upm-grove-temperature": "GroveStarterKit/grove-temperature.js"
+            "upm-grove-temperature": "GroveStarterKit/grove-temperature.js",
+            "upm-curieimu": "curieimu/curieimu.js"
         }
     },
     "author": {
