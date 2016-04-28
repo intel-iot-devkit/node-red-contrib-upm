@@ -38,8 +38,3 @@ If you do need to install Node-RED, you can do this as follows from the home dir
 
 ### Screenshot
 ![screenshot](https://raw.githubusercontent.com/w4ilun/Node-Red-Node-UPM/master/screenshot.png)
-
-<h2>Instructions</h2>
-<a>link</a>
-<img src="https://avatars1.githubusercontent.com/u/2881361?v=3&s=96" />
-<p>P</p>
