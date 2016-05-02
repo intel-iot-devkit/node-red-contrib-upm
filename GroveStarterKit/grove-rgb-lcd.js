@@ -22,9 +22,26 @@ module.exports = function(RED) {
         var node = this;
 
         this.on('input', function(msg) {
-            node.sensor.setCursor(node.row, node.column);
-            node.sensor.setColor(node.r, node.g, node.b);
-            node.sensor.write(''+msg.payload);
+            //set LCD background color
+            if(msg.lcdColor){ //on message
+                node.sensor.setColor(
+                    parseInt(msg.lcdColor.r),
+                    parseInt(msg.lcdColor.g),
+                    parseInt(msg.lcdColor.b)
+                );
+            }
+            node.sensor.setColor(node.r, node.g, node.b); //on setting
+
+            //set LCD cursor
+            if(msg.lcdCursor){ //on message
+                node.sensor.setCursor(
+                    parseInt(msg.lcdCursor.row),
+                    parseInt(msg.lcdCursor.column)
+                );
+            }
+            node.sensor.setCursor(node.row, node.column); //on setting
+            
+            node.sensor.write(''+msg.payload);//set display message
         }); 
 
         //clear interval on exit
