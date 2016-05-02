@@ -15,7 +15,7 @@ module.exports = function(RED) {
         this.b = parseInt(n.b);
         this.row = parseInt(n.row);
         this.column = parseInt(n.column);
-        this.sensor = new LCD.Jhd1313m1 (parseInt(node.platform), 0x3E, 0x62);
+        this.sensor = new LCD.Jhd1313m1 (parseInt(this.platform), 0x3E, 0x62);
         this.board = m.getPlatformName();
         this.status({});
 
@@ -30,7 +30,9 @@ module.exports = function(RED) {
                     parseInt(msg.lcdColor.b)
                 );
             }
-            node.sensor.setColor(node.r, node.g, node.b); //on setting
+	    else{
+                node.sensor.setColor(node.r, node.g, node.b); //on setting
+	    }
 
             //set LCD cursor
             if(msg.lcdCursor){ //on message
@@ -39,8 +41,10 @@ module.exports = function(RED) {
                     parseInt(msg.lcdCursor.column)
                 );
             }
-            node.sensor.setCursor(node.row, node.column); //on setting
-            
+	    else{
+                node.sensor.setCursor(node.row, node.column); //on setting
+	    }
+
             node.sensor.write(''+msg.payload);//set display message
         }); 
 
