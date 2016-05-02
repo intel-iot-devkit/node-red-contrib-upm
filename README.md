@@ -34,6 +34,8 @@ If you do need to install Node-RED, you can do this as follows from the home dir
     * Grove Rotary Angle Sensor
     * Grove Sound Sensor
     * Grove Temperature Sensor
+* Arduino 101
+    * Built in Curie IMU
 * ... more to follow
 
 ### Screenshot
