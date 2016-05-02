@@ -1,6 +1,6 @@
 {
     "name": "node-red-node-upm",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "Node-RED nodes to talk to sensors supported by the UPM library",
     "dependencies": {},
     "repository": {
@@ -11,13 +11,15 @@
     "keywords": ["node-red", "sensors", "mraa", "upm", "intel", "edison", "galileo"],
     "node-red": {
         "nodes": {
-            "upm-grove-led": "GroveStarterKit/grove-led.js",
-            "upm-grove-light": "GroveStarterKit/grove-light.js",
-            "upm-grove-rgb-lcd": "GroveStarterKit/grove-rgb-lcd.js",
-            "upm-grove-rotary": "GroveStarterKit/grove-rotary.js",
-            "upm-grove-sound": "GroveStarterKit/grove-sound.js",
+            "upm-grove-button":     "GroveStarterKit/grove-button.js",
+            "upm-grove-led":        "GroveStarterKit/grove-led.js",
+            "upm-grove-light":      "GroveStarterKit/grove-light.js",
+            "upm-grove-relay":      "GroveStarterKit/grove-relay.js",
+            "upm-grove-rgb-lcd":    "GroveStarterKit/grove-rgb-lcd.js",
+            "upm-grove-rotary":     "GroveStarterKit/grove-rotary.js",
+            "upm-grove-sound":      "GroveStarterKit/grove-sound.js",
             "upm-grove-temperature": "GroveStarterKit/grove-temperature.js",
-            "upm-curieimu": "curieimu/curieimu.js"
+            "upm-curieimu":         "curieimu/curieimu.js"
         }
     },
     "author": {
