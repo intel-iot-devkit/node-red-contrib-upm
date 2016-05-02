@@ -25,6 +25,10 @@ If you do need to install Node-RED, you can do this as follows from the home dir
         cd .node-red
         npm install node-red-node-upm
 
+Then run
+
+    node-red
+
 ### Supported Sensors
 
 * Grove Starter Kit
