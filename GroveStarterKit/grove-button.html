@@ -1,0 +1,85 @@
+<script type="text/x-red" data-template-name="UPM-Grove-Button">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
+        <select type="text" id="node-input-pin">
+            <option value="0" selected="selected">D0</option>
+            <option value="1">D1</option>
+            <option value="2">D2</option>
+            <option value="3">D3</option>
+            <option value="4">D4</option>
+            <option value="5">D5</option>
+            <option value="6">D6</option>
+            <option value="7">D7</option>
+            <option value="8">D8</option>
+            <option value="9">D9</option>
+            <option value="10">D10</option>
+            <option value="11">D11</option>
+            <option value="12">D12</option>
+            <option value="13">D13</option>
+        </select>
+    </div>    
+    <div id="interval-row" class="form-row">
+        <label for="node-input-interval"><i class="fa fa-refresh"></i> Interval (ms)</label>
+        <input type="text" id="node-input-interval" placeholder="1000">
+    </div>    
+</script>
+
+<script type="text/x-red" data-help-name="UPM-Grove-Button">
+    <h2>Grove Button</h2>
+    <br>
+    <p>This node will sample the Grove Button (Touch Button or PushButton) and change msg.payload based on user input (button pressed = 1, button unpressed = 0).</p>
+    <br>
+    <p>Learn More:
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/grove-button" target="_blank">Grove Button</a>
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/ttp223-touch-sensor" target="_blank">TTP223 Touch Sensor</a>
+    </p>
+    <br>
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/grovebutton.jpg" />
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/ttp223.jpg" />
+</script>
+
+
+<script type="text/javascript">
+
+    RED.nodes.registerType('UPM-Grove-Button', {
+        category: 'UPM Sensors',
+        defaults: {
+            name: {
+                value: ''
+            },
+	    platform: {
+                value: '0'
+	    },
+            pin:  {
+                value: '512',
+                required: true,
+                validate:RED.validators.number()
+            },
+            interval: {
+                value: 1000,
+                required: true,
+                validate: RED.validators.number()
+            }
+        },
+        color: '#a6bbcf',
+        paletteLabel: 'Grove Button',
+        inputs: 0,
+        outputs: 1,
+        icon: 'debug.png',
+        align: 'left',
+        label: function(){
+            return this.name || 'Grove Button';
+        },
+    });
+</script>
