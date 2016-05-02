@@ -28,6 +28,9 @@ If you do need to install Node-RED, you can do this as follows from the home dir
 ### Supported Sensors
 
 * Grove Starter Kit
+    * Grove Push Button
+    * Grove Touch Button
+    * Grove Relay
     * Grove Light Sensor
     * Grove LED
     * Grove RGB LCD
