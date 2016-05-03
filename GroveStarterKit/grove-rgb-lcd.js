@@ -44,13 +44,13 @@ module.exports = function(RED) {
 	    else{
                 node.sensor.setCursor(node.row, node.column); //on setting
 	    }
-            node.sensor.write('');//clear previous message
+            node.sensor.clear();//clear previous message
             node.sensor.write(''+msg.payload);//set display message
         }); 
 
         //clear interval on exit
         this.on('close', function() {
-            node.sensor.write(''); 
+            node.sensor.clear();
         });
     }
     RED.nodes.registerType('upm-grove-rgb-lcd', groveRGBLCD);

@@ -41,6 +41,7 @@ Then run
     * Grove Rotary Angle Sensor
     * Grove Sound Sensor
     * Grove Temperature Sensor
+    * Grove Servo
 * Arduino 101
     * Built in Curie IMU
 * ... more to follow

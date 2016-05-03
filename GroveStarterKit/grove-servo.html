@@ -1,0 +1,85 @@
+<script type="text/x-red" data-template-name="upm-grove-servo">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-platform"><i class="fa fa fa-wrench"></i> Platform</label>
+        <select type="text" id="node-input-platform">
+            <option value="0" selected="selected">Native</option>
+            <option value="512">Firmata</option>
+        </select>
+    </div> 
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin</label>
+        <select type="text" id="node-input-pin">
+            <option value="3" selected="selected">D3</option>
+            <option value="5">D5</option>
+            <option value="6">D6</option>
+            <option value="9">D9</option>
+            <option value="10">D10</option>
+            <option value="11">D11</option>
+        </select>
+    </div>    
+    <div id="angle-row" class="form-row">
+        <label for="node-input-angle"><i class="fa fa-refresh"></i> Servo Angle (0 - 180)</label>
+        <input type="text" id="node-input-angle" placeholder="90">
+    </div>    
+</script>
+
+<script type="text/x-red" data-help-name="upm-grove-servo">
+    <h2>Grove Servo</h2>
+    <br>
+    <p>This node will let you control the Grove Servo by setting the desired angle.</p>
+    <p>Note: Remember to select a pin that supports PWM (~) and ensure the board has a sufficient power supply.</p>
+    <br>
+    <p>
+        <ul>
+            <li>msg.payload - 0 - 180</li>
+        </ul>
+    </p>
+    <br>
+    <p>Learn More:
+        <a href="https://software.intel.com/en-us/iot/hardware/sensors/es08a-servo" target="_blank">Grove Servo</a>
+    </p>
+    <br>
+    <img src="https://raw.githubusercontent.com/intel-iot-devkit/upm/master/docs/images/es08a.jpg" />
+</script>
+
+
+<script type="text/javascript">
+    
+    function oneditprepare(){}
+
+    RED.nodes.registerType('upm-grove-servo', {
+        category: 'UPM Sensors',
+        defaults: {
+            name: {
+                value: ''
+            },
+        platform: {
+        value: '0'
+        },
+            pin:  {
+                value: '3',
+                required: true,
+                validate:RED.validators.number()
+            },
+            angle: {
+                value: 90,
+                required: true,
+                validate: RED.validators.number()
+            }
+        },
+        color: '#a6bbcf',
+        paletteLabel: 'Grove Servo',
+        inputs: 1,
+        outputs: 0,
+        icon: 'light.png',
+        align: 'right',
+        label: function(){
+            return this.name || 'Grove Servo';
+        },
+        oneditprepare:oneditprepare
+    });
+</script>
