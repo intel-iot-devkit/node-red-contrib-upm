@@ -1,11 +1,11 @@
 {
-    "name": "node-red-node-upm",
+    "name": "node-red-contrib-upm",
     "version": "0.3.0",
     "description": "Node-RED nodes to talk to sensors supported by the UPM library",
     "dependencies": {},
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/w4ilun/Node-Red-Node-UPM.git"
+        "url": "git+https://github.com/intel-iot-devkit/node-red-contrib-upm.git"
     },
     "license": "MIT",
     "keywords": ["node-red", "sensors", "mraa", "upm", "intel", "edison", "galileo"],
@@ -22,9 +22,5 @@
             "upm-grove-servo":      "GroveStarterKit/grove-servo.js",
             "upm-curieimu":         "curieimu/curieimu.js"
         }
-    },
-    "author": {
-        "name": "Wai Lun Poon",
-        "url": "https://github.com/w4ilun"
     }
 }
