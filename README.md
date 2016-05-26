@@ -7,7 +7,7 @@
 Run the following command in the root directory of your Node-RED install, usually
 this is ~/.node-red .
 
-        npm install node-red-node-upm
+        npm install node-red-contrib-upm
 
 ### Usage
 
@@ -23,7 +23,7 @@ If you do need to install Node-RED, you can do this as follows from the home dir
         npm install -g --unsafe-perm node-red
         mkdir .node-red
         cd .node-red
-        npm install node-red-node-upm
+        npm install node-red-contrib-upm
 
 Then run
 
