@@ -22,6 +22,9 @@ module.exports = function(RED) {
         var node = this;
 
         this.on('input', function(msg) {
+		
+	    node.sensor.clear();//clear previous message
+	    
             //set LCD background color
             if(msg.lcdColor){ //on message
                 node.sensor.setColor(
@@ -44,7 +47,6 @@ module.exports = function(RED) {
 	    else{
                 node.sensor.setCursor(node.row, node.column); //on setting
 	    }
-            node.sensor.clear();//clear previous message
             node.sensor.write(''+msg.payload);//set display message
         }); 
 
