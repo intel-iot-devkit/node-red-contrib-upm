@@ -6,35 +6,49 @@ module.exports = function(RED){
     function curieIMU(n){
         RED.nodes.createNode(this,n);
 
+        // Checks
+        if (n.accel === undefined) { n.accel = true; }
+        if (n.gyro === undefined) { n.gyro = true; }
+
         // Properties
         this.name = n.name;
-        this.mode = n.mode;
+        this.accel = n.accel;
+        this.gyro = n.gyro;
         this.interval = n.interval
         this.imu = new curieImu.CurieImu();
         this.status({});
 
         var node = this;
-	
-        var msg = { topic:node.name + '/' + node.mode };
-        var msgx = { topic:node.name + '/' + node.mode + 'X' };
-        var msgy = { topic:node.name + '/' + node.mode + 'Y' };
-        var msgz = { topic:node.name + '/' + node.mode + 'Z' };
 
         this.timer = setInterval(function() {
-            if(node.mode == 'ACCEL') {
+            if(node.accel) {
                 node.imu.updateAccel();
-                msgx.payload = node.imu.getAccelX();
-                msgy.payload = node.imu.getAccelY();
-                msgz.payload = node.imu.getAccelZ();
-            } else {
-                node.imu.updateGyro();
-                msgx.payload = node.imu.getGyroX();
-                msgy.payload = node.imu.getGyroY();
-                msgz.payload = node.imu.getGyroZ();
+
+                // Set values
+                var vals = {};
+                vals["accelX"] = node.imu.getAccelX();
+                vals["accelY"] = node.imu.getAccelY();
+                vals["accelZ"] = node.imu.getAccelZ();
+
+                var msg = { topic:node.name + '/' + 'ACCEL' };
+                msg.payload = vals;
+                node.send(msg);
             }
 
-            msg.payload = [ msgx, msgy, msgz ];
-            node.send(msg);
+            if(node.gyro) {
+                node.imu.updateGyro();
+
+                // Set values
+                var vals = {};
+                vals["gyroX"] = node.imu.getGyroX();
+                vals["gyroY"] = node.imu.getGyroY();
+                vals["gyroZ"] = node.imu.getGyroZ();
+
+                var msg = { topic:node.name + '/' + 'GYRO' };
+                msg.payload = vals;
+                node.send(msg);
+            }
+
         }, node.interval);
 
         // Clear interval on exit
