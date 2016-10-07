@@ -1,6 +1,6 @@
 ## node-red-node-upm
 
-<a href="http://nodered.org" target="_new">Node-RED</a> nodes to talk to <a href="https://software.intel.com/en-us/iot/hardware/sensors" target="_blank">sensors</a> supported by the <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a> library
+<a href="http://nodered.org" target="_new">Node-RED</a> nodes to talk to <a href="https://software.intel.com/en-us/iot/hardware/sensors" target="_blank">sensors & actuators</a> supported by the <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a> library
 
 ### Install
 
