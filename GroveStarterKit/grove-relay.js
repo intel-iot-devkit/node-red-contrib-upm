@@ -12,6 +12,10 @@ module.exports = function(RED) {
 	this.platform = n.platform;
         this.pin = n.pin;
         this.interval = n.interval;
+        if(parseInt(this.platform) == 512) {
+            //explicitly add the FIRMATA subplatform for MRAA
+            m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+        }
         this.relay = new upmRelay.GroveRelay(parseInt(this.pin) + parseInt(this.platform));
         this.board = m.getPlatformName();
         this.status({});

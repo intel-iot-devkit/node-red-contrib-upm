@@ -12,7 +12,11 @@ module.exports = function(RED){
         this.platform = n.platform;
         this.pin = n.pin;
         this.unit = n.unit;
-        this.interval = n.interval
+        this.interval = n.interval;
+        if(parseInt(this.platform) == 512) {
+            //explicitly add the FIRMATA subplatform for MRAA
+            m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+        }
         this.sensor = new m.Aio(parseInt(this.pin) + parseInt(this.platform));
         this.status({});
 
