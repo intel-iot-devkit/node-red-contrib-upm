@@ -15,6 +15,10 @@ module.exports = function(RED) {
         this.b = parseInt(n.b);
         this.row = parseInt(n.row);
         this.column = parseInt(n.column);
+        if(parseInt(this.platform) == 512) {
+            //explicitly add the FIRMATA subplatform for MRAA
+            m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+        }
         this.sensor = new LCD.Jhd1313m1 (parseInt(this.platform), 0x3E, 0x62);
         this.board = m.getPlatformName();
         this.status({});
