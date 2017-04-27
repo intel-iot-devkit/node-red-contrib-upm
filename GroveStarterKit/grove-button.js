@@ -2,6 +2,7 @@ module.exports = function(RED) {
 
     var m = require('mraa');
     var groveSensor = require('jsupm_grove');
+    var fs = require('fs');
 
     function groveButton(n) {
         //init
@@ -12,10 +13,15 @@ module.exports = function(RED) {
 	this.platform = n.platform;
         this.pin = n.pin;
         this.mode = n.mode;
-        this.interval = n.interval
+        this.interval = n.interval;
         if(parseInt(this.platform) == 512) {
-            //explicitly add the FIRMATA subplatform for MRAA
-            m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+            var arr = JSON.parse(fs.readFileSync('/tmp/imraa.lock', 'utf8')).Platform;
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i].hasOwnProperty('uart')) {
+                    //explicitly add the FIRMATA subplatform for MRAA
+                    m.addSubplatform(m.GENERIC_FIRMATA, arr[i].uart);
+                    }
+                }
         }
         this.sensor = new groveSensor.GroveButton(parseInt(this.pin) + parseInt(this.platform));
         this.board = m.getPlatformName();
