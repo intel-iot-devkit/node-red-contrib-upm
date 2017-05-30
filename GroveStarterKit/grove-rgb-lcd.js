@@ -1,7 +1,7 @@
 module.exports = function(RED) {
 
     var m = require('mraa');
-    var LCD = require('jsupm_i2clcd');
+    var LCD = require('jsupm_jhd1313m1');
 
     function groveRGBLCD(n) {
         //init
