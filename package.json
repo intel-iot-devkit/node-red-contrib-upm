@@ -1,26 +1,34 @@
 {
-    "name": "node-red-contrib-upm",
-    "version": "0.3.3",
-    "description": "Node-RED nodes to talk to sensors supported by the UPM library",
-    "dependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/intel-iot-devkit/node-red-contrib-upm.git"
-    },
-    "license": "MIT",
-    "keywords": ["node-red", "sensors", "mraa", "upm", "intel", "edison", "galileo"],
-    "node-red": {
-        "nodes": {
-            "upm-grove-button":     "GroveStarterKit/grove-button.js",
-            "upm-grove-led":        "GroveStarterKit/grove-led.js",
-            "upm-grove-light":      "GroveStarterKit/grove-light.js",
-            "upm-grove-relay":      "GroveStarterKit/grove-relay.js",
-            "upm-grove-rgb-lcd":    "GroveStarterKit/grove-rgb-lcd.js",
-            "upm-grove-rotary":     "GroveStarterKit/grove-rotary.js",
-            "upm-grove-sound":      "GroveStarterKit/grove-sound.js",
-            "upm-grove-temperature": "GroveStarterKit/grove-temperature.js",
-            "upm-grove-servo":      "GroveStarterKit/grove-servo.js",
-            "upm-curieimu":         "curieimu/curieimu.js"
-        }
+  "name": "node-red-contrib-upm",
+  "version": "0.3.4",
+  "description": "Node-RED nodes to talk to sensors supported by the UPM library",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intel-iot-devkit/node-red-contrib-upm.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node-red",
+    "sensors",
+    "mraa",
+    "upm",
+    "intel",
+    "edison",
+    "galileo"
+  ],
+  "node-red": {
+    "nodes": {
+      "upm-grove-button": "GroveStarterKit/grove-button.js",
+      "upm-grove-led": "GroveStarterKit/grove-led.js",
+      "upm-grove-light": "GroveStarterKit/grove-light.js",
+      "upm-grove-relay": "GroveStarterKit/grove-relay.js",
+      "upm-grove-rgb-lcd": "GroveStarterKit/grove-rgb-lcd.js",
+      "upm-grove-rotary": "GroveStarterKit/grove-rotary.js",
+      "upm-grove-sound": "GroveStarterKit/grove-sound.js",
+      "upm-grove-temperature": "GroveStarterKit/grove-temperature.js",
+      "upm-grove-servo": "GroveStarterKit/grove-servo.js",
+      "upm-curieimu": "curieimu/curieimu.js"
     }
+  }
 }
