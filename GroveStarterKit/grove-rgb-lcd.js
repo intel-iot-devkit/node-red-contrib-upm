@@ -1,7 +1,19 @@
 module.exports = function(RED) {
 
     var m = require('mraa');
-    var LCD = require('jsupm_jhd1313m1');
+    var fs = require('fs');
+    var LCD;
+    try {
+	LCD = require('jsupm_jhd1313m1');
+    } catch (e) {
+	//catch only MODULE_NOT_FOUND error to use jsupm_i2clcd if jsupm_jhd1313m1 is not found
+	if ( e.code === 'MODULE_NOT_FOUND') {
+	    console.log("module jsupm_jhd1313m1 not found! Use jsupm_i2clcd instead...");
+
+	    //instead include jsupm_i2clcd
+	    LCD = require('jsupm_i2clcd');
+	}
+    }
 
     function groveRGBLCD(n) {
         //init
