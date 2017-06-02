@@ -16,8 +16,22 @@ module.exports = function(RED) {
         this.row = parseInt(n.row);
         this.column = parseInt(n.column);
         if(parseInt(this.platform) == 512) {
-            //explicitly add the FIRMATA subplatform for MRAA
-            m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+	    var file;
+	    try {
+	        file = fs.readFileSync('/tmp/imraa.lock', 'utf8');
+		var arr = JSON.parse(file).Platform;
+                for (var i = 0; i < arr.length; i++) {
+                    if(arr[i].hasOwnProperty('uart')) {
+                        //explicitly add the FIRMATA subplatform for MRAA
+                        m.addSubplatform(m.GENERIC_FIRMATA, arr[i].uart);
+                    }
+                }
+	    } catch (e) {
+		if (e.code === 'ENOENT') {
+                    //if we cannot find lock file we assume ttyACM0 and try
+                    m.addSubplatform(m.GENERIC_FIRMATA, "/dev/ttyACM0");
+		}
+	    }
         }
         this.sensor = new LCD.Jhd1313m1 (parseInt(this.platform), 0x3E, 0x62);
         this.board = m.getPlatformName();
