@@ -1,3 +1,7 @@
+# DISCONTINUATION OF PROJECT #
+This project will no longer be maintained by Intel.
+Intel has ceased development and contributions including, but not limited to, maintenance, bug fixes, new releases, or updates, to this project.
+Intel no longer accepts patches to this project.
 ## node-red-node-upm
 
 <a href="http://nodered.org" target="_new">Node-RED</a> nodes to talk to <a href="https://software.intel.com/en-us/iot/hardware/sensors" target="_blank">sensors & actuators</a> supported by the <a href="https://github.com/intel-iot-devkit/upm" target="_blank">UPM</a> library
